@@ -15,7 +15,7 @@ public class UserValidation {
     }
     return result;
   }
- 
+
   @GWT3Export
   public Boolean validAge(User user) {
     Boolean result = true;

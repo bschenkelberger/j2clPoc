@@ -16,7 +16,7 @@
         <fieldset>
             <legend>User</legend>
             <div class="mb-3">
-                <label for="firstName" class="form-label">Vorname</label>
+                <label for="firstName" class="form-label">Vorname (Das Feld wird beim verlassen validiert. Muss mind. 3 Zeichen enthalten)</label>
                 <input type="text" id="firstName" class="form-control" placeholder="Vorname" onblur="checkMinLength()">
                 <p id="firstNameError" style="color: red;"></p>
             </div>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="age" class="form-label">Alter</label>
+                <label for="age" class="form-label">Alter (Das Feld wird beim abschicken der Form validiert. Mind. Alter 18)</label>
                 <input type="number" id="age" class="form-control" placeholder="Alter">
                 <p id="ageError" style="color: red;"></p>
             </div>
@@ -41,6 +41,7 @@
         function checkMinLength() {
             let length = $('#firstName').val();
             let text = '';
+            //validiere den Namen in bezug auf die länge
             if(!userValidation.checkMinlengthFirstName(length)) {
                 text = "Der Vorname muss mindestens drei Zeichen enhalten";
             } else {
@@ -62,7 +63,7 @@
             user.secondName =  $('#secondName').val();
             user.age = $('#age').val();
             
-            // Validiere das Alter
+            // validiere das Alter
             let text = '';
             if(!userValidation.validAge(user)) {
                  text = "Das mindest Alter ist 18";
